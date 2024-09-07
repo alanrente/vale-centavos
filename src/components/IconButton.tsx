@@ -1,10 +1,11 @@
 export default function IconButton({
-  ReactSvgElement,
   description,
   count,
   maxCount,
+  id,
 }: {
-  ReactSvgElement: JSX.Element;
+  // ReactSvgElement: JSX.Element;
+  id: string;
   description: string;
   maxCount: 9 | 99 | 999;
   count: number;
@@ -31,7 +32,25 @@ export default function IconButton({
           {count > maxCount ? `${maxCount}+` : `${count}`}
         </div>
       </div>
-      <div>{ReactSvgElement}</div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "32px",
+          height: "32px",
+          backgroundColor: "#F2F2F2",
+          borderRadius: "16px",
+          margin: "auto",
+          marginTop: "5px",
+        }}
+      >
+        <img
+          style={{ width: "32px", height: "32px" }}
+          src={require(`../icons/png/${id}.png`)}
+          alt=""
+        />
+      </div>
       <div
         style={{
           fontFamily: "Inter",

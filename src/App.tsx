@@ -1,16 +1,23 @@
 import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import IconButton from "./components/IconButton";
-import { Carro, Livros, SetaEsquerda, Tudo, Violao } from "./icons/svg";
+import { usePngs } from "./hooks/usePngs";
 
 function App() {
+  const pngs = usePngs();
   const Home = () => (
     <div style={{ margin: "50px", display: "flex", gap: "5px" }}>
-      <SetaEsquerda />
-      <Tudo />
-      <Violao />
-      <IconButton ReactSvgElement={<Livros />} count={9} maxCount={9} description="Leitura" key={"teste"} />
-      <IconButton ReactSvgElement={<Carro />} count={9} maxCount={9} description="Carro" key={"carro"} />
+      {Object.entries(pngs).map(([key, value]) => {
+        return (
+          <IconButton
+            id={key}
+            count={9}
+            maxCount={9}
+            description={key}
+            key={key}
+          />
+        );
+      })}
     </div>
   );
 
