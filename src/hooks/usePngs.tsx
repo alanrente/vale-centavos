@@ -1,5 +1,7 @@
 export function usePngs() {
   return {
+    SetaEsquerda: "../icons/png/SetaEsquerda.png",
+    Tudo: "../icons/png/Tudo.png",
     Barraca: "../icons/png/Barraca.png",
     Bebidas: "../icons/png/Bebidas.png",
     Bolo: "../icons/png/Bolo.png",
@@ -18,7 +20,7 @@ export function usePngs() {
     Roupas: "../icons/png/Roupas.png",
     Sorvete: "../icons/png/Sorvete.png",
     Tenis: "../icons/png/Tenis.png",
-    Tudo: "../icons/png/Tudo.png",
     Violao: "../icons/png/Violao.png",
+    SetaDireita: "../icons/png/SetaDireita.png",
   };
 }

@@ -6,18 +6,31 @@ import { usePngs } from "./hooks/usePngs";
 function App() {
   const pngs = usePngs();
   const Home = () => (
-    <div style={{ margin: "50px", display: "flex", gap: "5px" }}>
-      {Object.entries(pngs).map(([key, value]) => {
-        return (
-          <IconButton
-            id={key}
-            count={9}
-            maxCount={9}
-            description={key}
-            key={key}
-          />
-        );
-      })}
+    <div
+      style={{
+        margin: "50px",
+        display: "flex",
+        gap: "15px",
+        alignItems: "center",
+      }}
+    >
+      <img style={{}} src={require(`./icons/png/SetaEsquerda.png`)} alt="" />
+
+      {Object.entries(pngs)
+        .filter(([key]) => !key.includes("Seta"))
+        .map(([key, value]) => {
+          return (
+            <IconButton
+              id={key}
+              count={9}
+              maxCount={9}
+              description={key}
+              key={key}
+            />
+          );
+        })}
+
+      <img style={{}} src={require(`./icons/png/SetaDireita.png`)} alt="" />
     </div>
   );
 
