@@ -18,8 +18,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "move": "mv build ./server",
+    "remove-build": "rm -rf ./server/build",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run remove-build && react-scripts build && npm run move",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
