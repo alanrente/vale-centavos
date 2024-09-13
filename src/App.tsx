@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import IconButton from "./components/IconButton";
 import { usePngs } from "./hooks/usePngs";
 import CardAnuncio from "./components/CardAnuncio";
+import CardCupom from "./components/CardCupom";
 
 function App() {
   const pngs = usePngs();
@@ -44,6 +45,19 @@ function App() {
         }}
         imagem="imagem"
         nome="Nome Vendedor"
+      />
+
+      <CardCupom
+        imagem="imagem"
+        nome="Nome Vendedor"
+        descriptions={{
+          descricao: "Especial frango e carne 15kg",
+          titulo: "Ração Bio Care Premium",
+          valor: "999.99",
+          valorCupom: "0,90",
+          qtdCupom: "10",
+          condição: "NOVO",
+        }}
       />
     </div>
   );
