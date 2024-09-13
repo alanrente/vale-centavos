@@ -1,17 +1,72 @@
+import React from "react";
+
 export default function CardCupom({
   imagem,
   descriptions,
   nome,
 }: {
-  imagem: string;
+  imagem: any;
   nome: string;
   descriptions?: any;
 }) {
+  const background: {
+    black: React.CSSProperties;
+    silver: React.CSSProperties;
+    white: React.CSSProperties;
+    green: React.CSSProperties;
+  } = {
+    black: {
+      backgroundColor: "#414141",
+    },
+    silver: {
+      backgroundColor: "#707070",
+    },
+    white: {
+      backgroundColor: "#FFFFFF",
+    },
+    green: {
+      backgroundColor: "#22C55E",
+    },
+  };
+
+  const fontColor: {
+    white: React.CSSProperties;
+    black: React.CSSProperties;
+    silver: React.CSSProperties;
+  } = {
+    white: {
+      color: "#FFFFFF",
+    },
+    black: {
+      color: "#414141",
+    },
+    silver: {
+      color: "#707070",
+    },
+  };
+
   const baseStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
     width: "478px",
     fontFamily: "Inter",
+    borderRadius: 5,
+    ...background.white,
+  };
+
+  const precoFlutuante: React.CSSProperties = {
+    fontSize: 20,
+    width: 75,
+    height: 40,
+    position: "absolute",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    top: 14,
+    right: 13,
+    borderRadius: 5,
+    ...fontColor.white,
+    ...background.green,
   };
 
   const childrenBaseStyle: React.CSSProperties = {
@@ -25,18 +80,6 @@ export default function CardCupom({
     justifyContent: "center",
   };
 
-  const colorWhite: React.CSSProperties = {
-    color: "#FFFFFF",
-  };
-
-  const colorBlack: React.CSSProperties = {
-    color: "#414141",
-  };
-
-  const colorSilver: React.CSSProperties = {
-    color: "#707070",
-  };
-
   const spanValorStyle: React.CSSProperties = {
     fontSize: 13,
   };
@@ -48,13 +91,28 @@ export default function CardCupom({
 
   return (
     <div style={baseStyle}>
-      <div style={{ ...childrenBaseStyle, height: 290 }}>{imagem}</div>
-      <div style={{ ...childrenBaseStyle, height: 25 }}>{nome}</div>
+      <div style={{ ...childrenBaseStyle, height: 290, position: "relative" }}>
+        <div style={precoFlutuante}>
+          <span>{descriptions.valor}</span>
+        </div>
+        <img src={imagem} style={{ height: "100%", width: "100%" }} />
+      </div>
+      <div
+        style={{
+          ...childrenBaseStyle,
+          ...fontColor.white,
+          ...background.black,
+          height: 25,
+          alignItems: "center",
+        }}
+      >
+        <span style={{ marginLeft: 10, fontSize: 12 }}>{nome}</span>
+      </div>
       <div style={{ ...childrenBaseStyle, height: 124 }}>
-        <div style={{ ...colorBlack, margin: "18px 0 0 27px" }}>
+        <div style={{ ...fontColor.black, margin: "18px 0 0 27px" }}>
           {descriptions.titulo}
         </div>
-        <div style={{ ...colorSilver, margin: "18px 0 0 27px" }}>
+        <div style={{ ...fontColor.silver, margin: "18px 0 0 27px" }}>
           {descriptions.descricao}
         </div>
       </div>
@@ -68,10 +126,10 @@ export default function CardCupom({
       >
         <div
           style={{
-            ...colorWhite,
+            ...fontColor.white,
             ...divValorStyle,
+            ...background.black,
             width: "30%",
-            backgroundColor: "#414141",
           }}
         >
           <div>
@@ -86,8 +144,8 @@ export default function CardCupom({
           style={{
             ...divValorStyle,
             width: "40%",
-            ...colorBlack,
-            backgroundColor: "#F5F5F5",
+            ...background.white,
+            ...fontColor.black,
           }}
         >
           <div>
@@ -101,9 +159,9 @@ export default function CardCupom({
         <div
           style={{
             width: "30%",
-            ...colorWhite,
+            ...background.silver,
+            ...fontColor.white,
             ...divValorStyle,
-            backgroundColor: "#707070",
           }}
         >
           <div>
@@ -118,13 +176,14 @@ export default function CardCupom({
       <div
         style={{
           ...childrenBaseStyle,
-          ...colorWhite,
+          ...fontColor.white,
+          ...background.green,
           height: 50,
-          backgroundColor: "#22C55E",
           fontSize: 13,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          borderRadius: "0 0 5px 5px",
         }}
       >
         COMPRAR E PAGAR NO PIX
