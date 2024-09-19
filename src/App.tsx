@@ -4,6 +4,7 @@ import IconButton from "./components/IconButton";
 import { usePngs } from "./hooks/usePngs";
 import CardAnuncio from "./components/CardAnuncio";
 import CardCupom from "./components/CardCupom";
+import CardAnuncioBairro from "./components/CardAnuncioBairro";
 
 function App() {
   const pngs = usePngs();
@@ -12,6 +13,9 @@ function App() {
       height: "90%",
       border: "1px solid black",
       padding: "10px",
+      display: "flex",
+      flexDirection: "column",
+      gap: "20px",
     }}>
       <div
         className="icons-container"
@@ -47,7 +51,7 @@ function App() {
           valor: "999.99",
           condição: "NOVO",
         }}
-        imagem="imagem"
+        imagem={require(`./icons/png/SacoRacao.png`)}
         nome="Nome Vendedor"
       />
 
@@ -62,6 +66,15 @@ function App() {
           qtdCupom: "10",
           condição: "NOVO",
         }}
+      />
+
+      <CardAnuncioBairro 
+        imageUrl={require("./icons/png/Salgadinhos.png")}
+        title="100 SALGADINHOS DE FESTA POR R$ 35,00"
+        description="Favor consultar variedade de sabores no dia que fizer seu pedido."
+        valorAntigo="99,99"
+        valorNovo="0,90"
+        validade="Out/2024"
       />
     </div>
   );
