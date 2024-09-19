@@ -31,7 +31,7 @@ export default function CardAnuncio({
         style={{
           width: "100%",
           height: "195px",
-          backgroundImage: `url(${require(`../icons/png/SacoRacao.png`)})`,
+          backgroundImage: `url(${imagem})`,
           backgroundSize: "contain",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",

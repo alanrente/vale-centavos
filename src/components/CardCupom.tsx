@@ -1,55 +1,19 @@
 import React from "react";
+import { background, fontColor } from "../styles/global.style";
 
 export default function CardCupom({
   imagem,
   descriptions,
   nome,
 }: {
-  imagem: any;
+  imagem?: any;
   nome: string;
   descriptions?: any;
 }) {
-  const background: {
-    black: React.CSSProperties;
-    silver: React.CSSProperties;
-    white: React.CSSProperties;
-    green: React.CSSProperties;
-  } = {
-    black: {
-      backgroundColor: "#414141",
-    },
-    silver: {
-      backgroundColor: "#707070",
-    },
-    white: {
-      backgroundColor: "#FFFFFF",
-    },
-    green: {
-      backgroundColor: "#22C55E",
-    },
-  };
-
-  const fontColor: {
-    white: React.CSSProperties;
-    black: React.CSSProperties;
-    silver: React.CSSProperties;
-  } = {
-    white: {
-      color: "#FFFFFF",
-    },
-    black: {
-      color: "#414141",
-    },
-    silver: {
-      color: "#707070",
-    },
-  };
-
   const baseStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
     width: "478px",
-    fontFamily: "Inter",
     borderRadius: 5,
     ...background.white,
   };
@@ -91,12 +55,21 @@ export default function CardCupom({
 
   return (
     <div style={baseStyle}>
-      <div style={{ ...childrenBaseStyle, height: 290, position: "relative" }}>
-        <div style={precoFlutuante}>
-          <span>{descriptions.valor}</span>
+      {imagem && (
+        <div
+          style={{ ...childrenBaseStyle, height: 290, position: "relative" }}
+        >
+          <div style={precoFlutuante}>
+            <span>{descriptions.valor}</span>
+          </div>
+
+          <img
+            src={imagem}
+            style={{ height: "100%", width: "100%" }}
+            alt={nome}
+          />
         </div>
-        <img src={imagem} style={{ height: "100%", width: "100%" }} />
-      </div>
+      )}
       <div
         style={{
           ...childrenBaseStyle,
@@ -108,14 +81,16 @@ export default function CardCupom({
       >
         <span style={{ marginLeft: 10, fontSize: 12 }}>{nome}</span>
       </div>
-      <div style={{ ...childrenBaseStyle, height: 124 }}>
-        <div style={{ ...fontColor.black, margin: "18px 0 0 27px" }}>
-          {descriptions.titulo}
+      {descriptions.titulo && (
+        <div style={{ ...childrenBaseStyle, height: 124 }}>
+          <div style={{ ...fontColor.black, margin: "18px 0 0 27px" }}>
+            {descriptions.titulo}
+          </div>
+          <div style={{ ...fontColor.silver, margin: "18px 0 0 27px" }}>
+            {descriptions.descricao}
+          </div>
         </div>
-        <div style={{ ...fontColor.silver, margin: "18px 0 0 27px" }}>
-          {descriptions.descricao}
-        </div>
-      </div>
+      )}
       <div
         style={{
           ...childrenBaseStyle,
