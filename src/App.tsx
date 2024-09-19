@@ -72,9 +72,11 @@ function App() {
         imageUrl={require("./icons/png/Salgadinhos.png")}
         title="100 SALGADINHOS DE FESTA POR R$ 35,00"
         description="Favor consultar variedade de sabores no dia que fizer seu pedido."
-        valorAntigo="99,99"
-        valorNovo="0,90"
+        valorAntigo="45,00"
+        valor="35,00"
+        valorCupom="0,50"
         validade="Out/2024"
+        qtdCupom={10}
       />
     </div>
   );

@@ -7,19 +7,24 @@ interface CardAnuncioBairroProps {
   description: string;
   imageUrl: string;
   valorAntigo: string;
-  valorNovo: string;
+  valor: string;
+  valorCupom: string;
   validade: string;
+  qtdCupom: number;
 }
 
 function CardAnuncioBairro({
   valorAntigo,
-  valorNovo,
+  valor,
   title,
   description,
   validade,
   imageUrl,
+  valorCupom,
+  qtdCupom,
 }: CardAnuncioBairroProps) {
   const body: CSSProperties = {
+    cursor: "pointer",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -76,7 +81,7 @@ function CardAnuncioBairro({
           <span style={valorAntigoStyle}>{valorAntigo}</span>
           <span style={valorNovoStyle}>por:</span>
           <span style={{ ...valorNovoStyle, fontWeight: "bold" }}>
-            {valorNovo}
+            {valor}
           </span>
         </span>
         <span style={{ ...fontColor.silver, fontSize: 24, fontWeight: "bold" }}>
@@ -90,10 +95,9 @@ function CardAnuncioBairro({
       <CardCupom
         nome="Cachorro-quente do Romário"
         descriptions={{
-          valor: "77,77",
-          valorCupom: "40,90",
-          qtdCupom: "15",
-          condição: "NOVO",
+          valor,
+          valorCupom,
+          qtdCupom,
         }}
       />
     </div>
