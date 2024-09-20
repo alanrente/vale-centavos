@@ -5,6 +5,9 @@ export const background: {
   silver: CSSProperties;
   white: CSSProperties;
   green: CSSProperties;
+  yellow: CSSProperties;
+  yellowDark: CSSProperties;
+  brown: CSSProperties;
 } = {
   black: {
     backgroundColor: "#414141",
@@ -17,6 +20,15 @@ export const background: {
   },
   green: {
     backgroundColor: "#22C55E",
+  },
+  yellow: {
+    backgroundColor: "#FFF701",
+  },
+  yellowDark: {
+    backgroundColor: "#D19D07",
+  },
+  brown: {
+    backgroundColor: "#723A12",
   },
 };
 
