@@ -1,6 +1,7 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useContext } from "react";
 import { fontColor } from "../styles/global.style";
 import CardCupom from "./CardCupom";
+import { ValeCentavosContext } from "../contexts/ValeCentavosContext";
 
 interface CardAnuncioBairroProps {
   title: string;
@@ -59,8 +60,14 @@ function CardAnuncioBairro({
     ...fontColor.silverLight,
   };
 
+  const { state, setState } = useContext(ValeCentavosContext);
+
+  const handleClick = () => {
+    setState(state + 1);
+  }
+
   return (
-    <div style={body}>
+    <div style={body} onClick={handleClick}>
       <div>
         <img
           style={{ width: "150px", height: "150px" }}
@@ -80,9 +87,7 @@ function CardAnuncioBairro({
           <span style={{ ...valorAntigoStyle }}>De:</span>
           <span style={valorAntigoStyle}>{valorAntigo}</span>
           <span style={valorNovoStyle}>por:</span>
-          <span style={{ ...valorNovoStyle, fontWeight: "bold" }}>
-            {valor}
-          </span>
+          <span style={{ ...valorNovoStyle, fontWeight: "bold" }}>{valor}</span>
         </span>
         <span style={{ ...fontColor.silver, fontSize: 24, fontWeight: "bold" }}>
           {title}

@@ -1,21 +1,19 @@
 import "./App.css";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import IconButton from "./components/IconButton";
-import { usePngs } from "./hooks/usePngs";
-import CardAnuncio from "./components/CardAnuncio";
-import CardCupom from "./components/CardCupom";
-import CardAnuncioBairro from "./components/CardAnuncioBairro";
+import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import { Playground } from "./pages/Playground";
+import { ValeCentavosProvider } from "./contexts/ValeCentavosContext";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/plauground" element={<Playground />} />
-      </Routes>
-    </Router>
+    <BrowserRouter>
+      <ValeCentavosProvider value={{}}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/playground" element={<Playground />} />
+        </Routes>
+      </ValeCentavosProvider>
+    </BrowserRouter>
   );
 }
 

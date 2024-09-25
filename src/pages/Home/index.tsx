@@ -1,4 +1,6 @@
-import { background } from "../../styles/global.style";
+import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { globalColors } from "../../styles/global.style";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
@@ -6,7 +8,6 @@ interface StyleProps {
 
 export default function Home() {
   const HomeStyle: React.CSSProperties = {
-    overflowX: "hidden",
     alignItems: "center",
     justifyContent: "space-between",
     display: "flex",
@@ -14,97 +15,94 @@ export default function Home() {
     gap: "20px",
   };
 
-  const HeaderStyle: StyleProps = {
-    base: (args) => ({
-      display: "flex",
-      flexDirection: "row",
-      position: "relative",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "60px",
-      height: "10vh",
-      width: "100%",
-      backgroundColor: args ? args.backgroundColor : "white",
-    }),
-    links: () => ({
-      display: "flex",
-      flexDirection: "row",
-      gap: "20px",
-    }),
-    link: (args) => ({
-      fontSize: "12px",
-      height: "20px",
-      cursor: "pointer",
-      borderBottom:
-        args && args.active
-          ? `2px solid ${background.green.backgroundColor}`
-          : "2px solid transparent",
-    }),
-    buttonEntrar: () => ({
-      ...background.yellow,
-      position: "absolute",
-      display: "flex",
-      textTransform: "uppercase",
-      fontWeight: "600",
-      color: background.brown.backgroundColor,
-      fontSize: "0.8em",
-      alignItems: "center",
-      justifyContent: "center",
-      width: "130px",
-      height: "32px",
-      top: "25%",
-      right: "8vw",
-      borderRadius: "5px",
-      border: `1px solid ${background.yellowDark.backgroundColor}`,
-    }),
-  };
-
   const BannerStyle: StyleProps = {
     base: () => ({
       display: "flex",
-      flexDirection: "column",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      position: "relative",
+      gap: "20px",
+      width: "100%",
+      height: "25vh",
+      // backgroundColor: "#7e2929",
     }),
-    banner() {
+    back() {
       return {
+        background: "linear-gradient(180deg, #414141 0%, #A7A7A7 100%)",
+        position: "absolute",
         display: "flex",
         flexDirection: "row",
-        gap: "20px",
-        minHeight: "200px",
-        height: "480px",
-        backgroundImage: `url(${require("../../icons/png/BannerPrincipal.png")})`,
-        // backgroundSize: "100%",
-        // backgroundSize: "100% 100%",
-        backgroundSize: "cover",
-        // backgroundSize: "contain",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        // backgroundPosition: "100% 100%",
+        top: 0,
+        width: "100%",
+        height: "70%",
+      };
+    },
+    backDiv() {
+      return {
+        fontSize: ".6rem",
+        color: "#fff",
+        margin: "4% 0 0 4%",
+        // backgroundColor: "#000",
+        height: "15%",
+      };
+    },
+    background() {
+      return {
+        height: "80%",
         width: "100vw",
+        position: "absolute",
+        bottom: 0,
+        overflowX: "scroll",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: "20px",
+        flexWrap: "nowrap",
+        whiteSpace: "nowrap",
+        backgroundColor: "transparent",
+        scrollbarWidth: "none",
+      };
+    },
+    banner() {
+      return {
+        height: "90%",
+        margin: "0 2px",
+        backgroundColor: "#1c5779",
+        width: "75%",
+        flexShrink: 0,
       };
     },
   };
 
+  const navigate = useNavigate();
+  const bannerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (bannerRef.current) {
+      const bannerWidth = bannerRef.current.scrollWidth;
+      const containerWidth = bannerRef.current.clientWidth;
+      const scrollPosition = (bannerWidth - containerWidth) / 2;
+      bannerRef.current.scrollLeft = scrollPosition;
+    }
+  }, []);
+
   return (
-    <div style={HomeStyle}>
-      <div style={HeaderStyle.base({ backgroundColor: "#FFF" })}>
-        <div style={HeaderStyle.links()}>
-          <span style={HeaderStyle.link({ active: true })}>
-            PÁGINA PRINCIPAL
-          </span>
-          <span style={HeaderStyle.link()}>MARKETINPLACE</span>
-          <span style={HeaderStyle.link()}>+FOOD</span>
-          <span style={HeaderStyle.link()}>ANUNCIOS DO BAIRRO</span>
-          <span style={HeaderStyle.link()}>CONSULTAR CUPOM</span>
-          <span style={HeaderStyle.link()}>BLOG</span>
-        </div>
-        <div style={HeaderStyle.buttonEntrar()}>Entrar</div>
-      </div>
+    <div style={{ ...HomeStyle }}>
       <div style={BannerStyle.base()}>
-        <div style={BannerStyle.banner()}>
-          <div></div>
-          <div></div>
+        <div style={BannerStyle.back()}>
+          <div style={{ ...BannerStyle.backDiv(), color: globalColors.yellow }}>
+            São Pedro da Aldeia
+          </div>
+          <div style={BannerStyle.backDiv()}>Balneário</div>
+          <div style={BannerStyle.backDiv()}>Parque dos Meninos</div>
+          <div style={BannerStyle.backDiv()}>Cancela</div>
         </div>
-        <div></div>
+        <div style={BannerStyle.background()} ref={bannerRef}>
+          <div style={BannerStyle.banner()}>Primeiro</div>
+          <div style={BannerStyle.banner()}>Segundo</div>
+          <div style={BannerStyle.banner()}>terceiro</div>
+        </div>
       </div>
       <div>direto com comerciante</div>
       <div>+food</div>
