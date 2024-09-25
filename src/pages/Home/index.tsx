@@ -42,7 +42,7 @@ export default function Home() {
       return {
         fontSize: ".6rem",
         color: "#fff",
-        margin: "4% 0 0 4%",
+        margin: ".8rem 0 0 .8rem",
         // backgroundColor: "#000",
         height: "15%",
       };

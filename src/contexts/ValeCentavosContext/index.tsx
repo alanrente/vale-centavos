@@ -75,7 +75,7 @@ export const ValeCentavosProvider = ({ children }: any) => {
               display: "flex",
               flexDirection: "row",
               gap: "10px",
-              width: "40%",
+              width: "50%",
               minWidth: "130px",
               // backgroundColor: "yellow"
             }}
@@ -92,7 +92,7 @@ export const ValeCentavosProvider = ({ children }: any) => {
                 width: "80%",
               }}
             >
-              <span style={{ fontSize: 12, color: globalColors.black }}>
+              <span style={{ fontSize: 10, color: globalColors.black }}>
                 NA CONTA R$
               </span>
               <span
