@@ -13,7 +13,7 @@ export const MarketPlace = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    border-bottom: 3px solid ${globalColors.purple};
+    border-bottom: 4px solid ${globalColors.purple};
   }
 
   .header-content {
@@ -41,5 +41,16 @@ export const MarketPlace = styled.div`
     font-size: 0.8rem;
     height: 100%;
     font-weight: 500;
+  }
+
+  .categorias {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: .5vh;
+    margin-bottom: 1rem;
+    width: 92%;
+    height: 12vh;
+    /* background-color: #ac5757b0; */
   }
 `;

@@ -2,6 +2,9 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { globalColors } from "../../styles/global.style";
 import { MarketPlace } from "./index.styled";
+import SectionScrollHorizontal from "../../components/SectionScrollHorizontal";
+import { usePngs } from "../../hooks/usePngs";
+import IconButton from "../../components/IconButton";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
@@ -13,7 +16,7 @@ export default function Home() {
     justifyContent: "space-between",
     display: "flex",
     flexDirection: "column",
-    gap: "20px",
+    gap: "5.5vh",
   };
 
   const BannerStyle: StyleProps = {
@@ -25,7 +28,7 @@ export default function Home() {
       position: "relative",
       gap: "20px",
       width: "100%",
-      height: "25vh",
+      height: "26vh",
       // backgroundColor: "#7e2929",
     }),
     back() {
@@ -48,29 +51,15 @@ export default function Home() {
         height: "15%",
       };
     },
-    background() {
-      return {
-        height: "80%",
-        width: "100vw",
-        position: "absolute",
-        bottom: 0,
-        overflowX: "scroll",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "20px",
-        flexWrap: "nowrap",
-        whiteSpace: "nowrap",
-        backgroundColor: "transparent",
-        scrollbarWidth: "none",
-      };
-    },
     banner() {
       return {
-        height: "90%",
-        margin: "0 2px",
+        height: "96%",
+        margin: "0",
+        borderRadius: "10px",
         backgroundColor: "#1c5779",
-        width: "75%",
+        width: "90%",
+        maxWidth: "600px",
+        maxHeight: "200px",
         flexShrink: 0,
       };
     },
@@ -78,6 +67,7 @@ export default function Home() {
 
   const navigate = useNavigate();
   const bannerRef = useRef<HTMLDivElement>(null);
+  const pngs = usePngs();
 
   useEffect(() => {
     if (bannerRef.current) {
@@ -99,11 +89,15 @@ export default function Home() {
           <div style={BannerStyle.backDiv()}>Parque dos Meninos</div>
           <div style={BannerStyle.backDiv()}>Cancela</div>
         </div>
-        <div style={BannerStyle.background()} ref={bannerRef}>
+        <SectionScrollHorizontal
+          args={{
+            ref: bannerRef,
+          }}
+        >
           <div style={BannerStyle.banner()}>Primeiro</div>
           <div style={BannerStyle.banner()}>Segundo</div>
           <div style={BannerStyle.banner()}>terceiro</div>
-        </div>
+        </SectionScrollHorizontal>
       </div>
       <MarketPlace>
         <div className="header">
@@ -111,7 +105,30 @@ export default function Home() {
             <span className="header-title">Marketplace</span>
             <span className="header-description">({238})</span>
           </div>
-          <span className="header-content header-description">Promoções exclusivas dos comercinates do bairro.</span>
+          <span className="header-content header-description">
+            Promoções exclusivas dos comercinates do bairro.
+          </span>
+        </div>
+        <div className="categorias">
+          <SectionScrollHorizontal
+            props={{
+              gap: "2rem",
+            }}
+          >
+            {Object.entries(pngs)
+              .filter(([key]) => !key.includes("Seta"))
+              .map(([key, value]) => {
+                return (
+                  <IconButton
+                    id={key}
+                    count={9}
+                    maxCount={9}
+                    description={key}
+                    key={key}
+                  />
+                );
+              })}
+          </SectionScrollHorizontal>
         </div>
         direto com comerciante
       </MarketPlace>
