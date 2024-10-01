@@ -12,6 +12,7 @@ export const globalColors = {
   yellowDark: "#D19D07",
   brown: "#723A12",
   red: "#F65050",
+  purple: "#963095",
 };
 
 export const background: {

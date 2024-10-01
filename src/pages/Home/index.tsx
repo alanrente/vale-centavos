@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { globalColors } from "../../styles/global.style";
+import { MarketPlace } from "./index.styled";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
@@ -104,7 +105,16 @@ export default function Home() {
           <div style={BannerStyle.banner()}>terceiro</div>
         </div>
       </div>
-      <div>direto com comerciante</div>
+      <MarketPlace>
+        <div className="header">
+          <div className="header-content">
+            <span className="header-title">Marketplace</span>
+            <span className="header-description">({238})</span>
+          </div>
+          <span className="header-content header-description">Promoções exclusivas dos comercinates do bairro.</span>
+        </div>
+        direto com comerciante
+      </MarketPlace>
       <div>+food</div>
       <div>anuncios do bairro</div>
       <div>footer</div>
