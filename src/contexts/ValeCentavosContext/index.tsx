@@ -28,7 +28,7 @@ export const ValeCentavosProvider = ({ children }: any) => {
           width: "100vw",
           backgroundColor: globalColors.white,
           // backgroundColor: "saddlebrown",
-          position: "fixed",
+          // position: "fixed",
           zIndex: 99999,
           display: "flex",
           flexDirection: "row",
@@ -151,10 +151,10 @@ export const ValeCentavosProvider = ({ children }: any) => {
       <div
         className="main"
         style={{
-          height: "90vh",
+          // height: "90vh",
           overflowY: "scroll",
           position: "relative",
-          top: "10vh",
+          // top: "10vh",
           // backgroundColor: "gray",
         }}
       >

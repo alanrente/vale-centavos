@@ -93,10 +93,12 @@ export const CardAnuncioStyled = styled.div`
         flex-direction: row;
         align-items: center;
         width: 86%;
-
+        
         .cupom-span {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          white-space: pre-wrap;
           color: ${globalColors.white};
-          white-space: wrap;
           font-size: 9px;
           font-weight: 400;
           /* background-color: #a571718f; */
