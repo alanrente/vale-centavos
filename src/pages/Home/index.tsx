@@ -5,6 +5,7 @@ import { MarketPlace } from "./index.styled";
 import SectionScrollHorizontal from "../../components/SectionScrollHorizontal";
 import { usePngs } from "../../hooks/usePngs";
 import IconButton from "../../components/IconButton";
+import CardAnuncio from "../../components/CardAnuncio";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
@@ -16,7 +17,7 @@ export default function Home() {
     justifyContent: "space-between",
     display: "flex",
     flexDirection: "column",
-    gap: "5.5vh",
+    gap: "3vh",
   };
 
   const BannerStyle: StyleProps = {
@@ -28,18 +29,19 @@ export default function Home() {
       position: "relative",
       gap: "20px",
       width: "100%",
-      height: "26vh",
+      height: "22vh",
       // backgroundColor: "#7e2929",
     }),
     back() {
       return {
         background: "linear-gradient(180deg, #414141 0%, #A7A7A7 100%)",
         position: "absolute",
+        zIndex: -999,
         display: "flex",
         flexDirection: "row",
         top: 0,
         width: "100%",
-        height: "70%",
+        height: "66%",
       };
     },
     backDiv() {
@@ -53,8 +55,9 @@ export default function Home() {
     },
     banner() {
       return {
-        height: "96%",
-        margin: "0",
+        height: "78%",
+        position: "relative",
+        marginTop: "8%",
         borderRadius: "10px",
         backgroundColor: "#1c5779",
         width: "90%",
@@ -130,7 +133,47 @@ export default function Home() {
               })}
           </SectionScrollHorizontal>
         </div>
-        direto com comerciante
+        <div className="anuncios">
+          <div className="anuncios-section">
+            <div className="anuncios-section-cards">
+              <SectionScrollHorizontal args={{ className: "anuncios-card" }}>
+                <CardAnuncio
+                  descriptions={{
+                    descricao: "qualquer",
+                    titulo: "titulo",
+                    valor: "10,00",
+                    condicao: "PROMOÇÃO",
+                  }}
+                  imagem={require("../../icons/png/SacoRacao.png")}
+                  nome="Nome"
+                />
+                <CardAnuncio
+                  descriptions={{
+                    descricao: "Ração Bio Care Premium",
+                    titulo: "titulo",
+                    valor: "10,00",
+                    condicao: "PROMOÇÃO",
+                  }}
+                  imagem={require("../../icons/png/SacoRacao.png")}
+                  nome="nome"
+                />
+                <CardAnuncio
+                  descriptions={{
+                    descricao: "qualquer",
+                    titulo: "titulo",
+                    valor: "10,00",
+                    condicao: "PROMOÇÃO",
+                  }}
+                  imagem={require("../../icons/png/SacoRacao.png")}
+                  nome="nome"
+                />
+              </SectionScrollHorizontal>
+            </div>
+            <div className="anuncios-section-ver-mais">
+              <span>Ver mais</span>
+            </div>
+          </div>
+        </div>
       </MarketPlace>
       <div>+food</div>
       <div>anuncios do bairro</div>

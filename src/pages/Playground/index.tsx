@@ -50,7 +50,7 @@ export function Playground() {
           descricao: "Especial frango e carne 15kg",
           titulo: "Ração Bio Care Premium",
           valor: "999.99",
-          condição: "NOVO",
+          condicao: "NOVO",
         }}
         imagem={require(`../../icons/png/SacoRacao.png`)}
         nome="Nome Vendedor"
