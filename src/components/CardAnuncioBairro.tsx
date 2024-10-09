@@ -44,12 +44,6 @@ function CardAnuncioBairro({
     justifyContent: "space-between",
   };
 
-  const valoresStyle: CSSProperties = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  };
-
   const valorAntigoStyle: CSSProperties = {
     fontSize: "13px",
     ...fontColor.red,

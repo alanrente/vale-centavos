@@ -1,53 +1,31 @@
 import styled from "styled-components";
 import { globalColors } from "../../styles/global.style";
 
-export const MarketPlace = styled.div`
+export const PageStyled = styled.div`
+  justify-content: space-between;
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SectionStyled = styled.div`
   display: flex;
   margin-bottom: 2rem;
   flex-direction: column;
   align-items: center;
   width: 95%;
+`;
+
+export const MarketPlace = styled(SectionStyled)`
   height: 80vh;
-
-  .header {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-bottom: 4px solid ${globalColors.purple};
-  }
-
-  .header-content {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-    gap: .5rem;
-    height: 100%;
-    text-align: start;
-    margin-left: .8rem;
-    margin-bottom: .8rem;
-    /* background-color: #c7b7b7; */
-  }
-  
-  .header-title {
-    height: 100%;
-    color: ${globalColors.purple};
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-
-  .header-description {
-    color: ${globalColors.silver};
-    font-size: 0.8rem;
-    height: 100%;
-    font-weight: 500;
-  }
 
   .categorias {
     display: flex;
     flex-direction: row;
     position: relative;
-    margin-top: .5vh;
+    margin-top: 0.5vh;
     margin-bottom: 1rem;
     width: 92%;
     height: 12vh;
@@ -55,7 +33,7 @@ export const MarketPlace = styled.div`
   }
 
   .anuncios {
-    background: url(${require("../../icons/png/BackgroundMarketPlace.png")});  
+    background: url(${require("../../icons/png/BackgroundMarketPlace.png")});
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -83,7 +61,7 @@ export const MarketPlace = styled.div`
   .anuncios-card {
     gap: 2.8rem;
   }
-  
+
   .anuncios-section-cards {
     width: 100%;
     height: 92%;
@@ -103,6 +81,28 @@ export const MarketPlace = styled.div`
 
   .anuncios-section-ver-mais span {
     margin-right: 1rem;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 `;
+
+export const MaisFood = styled(SectionStyled)`
+  gap: 2.8rem;
+`;
+
+export const VerMaisStyled = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  height: 8%;
+  background-color: ${globalColors.black};
+  color: ${globalColors.white};
+`;
+
+export const VerMaisSpan = styled(VerMaisStyled).attrs({ as: "span" })`
+  margin: 8px 1rem 8px 0;
+  font-size: 0.8rem;
+`;
+
+export const AnunciosDoBairroStyled = styled(SectionStyled)``;

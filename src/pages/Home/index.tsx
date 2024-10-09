@@ -1,25 +1,27 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { globalColors } from "../../styles/global.style";
-import { MarketPlace } from "./index.styled";
+import {
+  AnunciosDoBairroStyled,
+  MaisFood,
+  MarketPlace,
+  PageStyled,
+  SectionStyled,
+  VerMaisSpan,
+  VerMaisStyled,
+} from "./index.styled";
 import SectionScrollHorizontal from "../../components/SectionScrollHorizontal";
 import { usePngs } from "../../hooks/usePngs";
 import IconButton from "../../components/IconButton";
 import CardAnuncio from "../../components/CardAnuncio";
+import LabelSection from "../../components/LabelSection";
+import CardAnuncioBairro from "../../components/CardAnuncioBairro";
+import CardCupom from "../../components/CardCupom";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
 }
 
 export default function Home() {
-  const HomeStyle: React.CSSProperties = {
-    alignItems: "center",
-    justifyContent: "space-between",
-    display: "flex",
-    flexDirection: "column",
-    gap: "3vh",
-  };
-
   const BannerStyle: StyleProps = {
     base: () => ({
       display: "flex",
@@ -57,7 +59,7 @@ export default function Home() {
       return {
         height: "78%",
         position: "relative",
-        marginTop: "8%",
+        marginTop: "4vh",
         borderRadius: "10px",
         backgroundColor: "#1c5779",
         width: "90%",
@@ -68,7 +70,6 @@ export default function Home() {
     },
   };
 
-  const navigate = useNavigate();
   const bannerRef = useRef<HTMLDivElement>(null);
   const pngs = usePngs();
 
@@ -82,7 +83,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ ...HomeStyle }}>
+    <PageStyled>
       <div style={BannerStyle.base()}>
         <div style={BannerStyle.back()}>
           <div style={{ ...BannerStyle.backDiv(), color: globalColors.yellow }}>
@@ -103,15 +104,12 @@ export default function Home() {
         </SectionScrollHorizontal>
       </div>
       <MarketPlace>
-        <div className="header">
-          <div className="header-content">
-            <span className="header-title">Marketplace</span>
-            <span className="header-description">({238})</span>
-          </div>
-          <span className="header-content header-description">
-            Promoções exclusivas dos comercinates do bairro.
-          </span>
-        </div>
+        <LabelSection
+          qtd={238}
+          title="Marketplace"
+          description="Promoções exclusivas dos comercinates do bairro."
+          color={globalColors.purple}
+        />
         <div className="categorias">
           <SectionScrollHorizontal
             props={{
@@ -169,15 +167,48 @@ export default function Home() {
                 />
               </SectionScrollHorizontal>
             </div>
-            <div className="anuncios-section-ver-mais">
-              <span>Ver mais</span>
-            </div>
+            <VerMaisStyled>
+              <VerMaisSpan>Ver mais</VerMaisSpan>
+            </VerMaisStyled>
           </div>
         </div>
       </MarketPlace>
-      <div>+food</div>
-      <div>anuncios do bairro</div>
+      <MaisFood>
+        <LabelSection
+          qtd={19}
+          title="+Food"
+          description="O que tem de mais gostoso no seu bairro está aqui!"
+          color={globalColors.red}
+        />
+        <SectionScrollHorizontal>
+          <CardCupom
+            nome="Cachorro-quente do Romário"
+            descriptions={{
+              valor: "5,00",
+              valorCupom: "3,00",
+              qtdCupom: 20,
+            }}
+            imagem={require("../../icons/png/HotDog.png")}
+          />
+          
+        </SectionScrollHorizontal>
+        <VerMaisStyled
+          style={{
+            width: "90%",
+          }}
+        >
+          <VerMaisSpan>Ver mais</VerMaisSpan>
+        </VerMaisStyled>
+      </MaisFood>
+      <AnunciosDoBairroStyled>
+        <LabelSection
+          qtd={19}
+          title="MAIS ANÚNCIOS DO BAIRRO"
+          description="Aproveite os desconto especiais de seu bairro"
+          color={globalColors.greenLightSea}
+        />
+      </AnunciosDoBairroStyled>
       <div>footer</div>
-    </div>
+    </PageStyled>
   );
 }
