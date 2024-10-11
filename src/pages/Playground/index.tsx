@@ -1,6 +1,6 @@
 import CardAnuncio from "../../components/CardAnuncio";
 import CardAnuncioBairro from "../../components/CardAnuncioBairro";
-import CardCupom from "../../components/CardCupom";
+import CardCupom from "../../components/CardCupom/CardCupom";
 import IconButton from "../../components/IconButton";
 import { usePngs } from "../../hooks/usePngs";
 
@@ -65,7 +65,7 @@ export function Playground() {
           valor: "99,99",
           valorCupom: "0,90",
           qtdCupom: "10",
-          condição: "NOVO",
+          valorAntigo: '100,00',
         }}
       />
 

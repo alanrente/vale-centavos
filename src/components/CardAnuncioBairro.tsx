@@ -1,6 +1,6 @@
 import React, { CSSProperties, useContext } from "react";
 import { fontColor } from "../styles/global.style";
-import CardCupom from "./CardCupom";
+import CardCupom from "./CardCupom/CardCupom";
 import { ValeCentavosContext } from "../contexts/ValeCentavosContext";
 
 interface CardAnuncioBairroProps {
@@ -96,7 +96,8 @@ function CardAnuncioBairro({
         descriptions={{
           valor,
           valorCupom,
-          qtdCupom,
+          qtdCupom: qtdCupom.toString(),
+          valorAntigo: "111"
         }}
       />
     </div>

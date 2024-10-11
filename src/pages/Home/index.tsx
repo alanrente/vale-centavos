@@ -5,7 +5,6 @@ import {
   MaisFood,
   MarketPlace,
   PageStyled,
-  SectionStyled,
   VerMaisSpan,
   VerMaisStyled,
 } from "./index.styled";
@@ -14,8 +13,7 @@ import { usePngs } from "../../hooks/usePngs";
 import IconButton from "../../components/IconButton";
 import CardAnuncio from "../../components/CardAnuncio";
 import LabelSection from "../../components/LabelSection";
-import CardAnuncioBairro from "../../components/CardAnuncioBairro";
-import CardCupom from "../../components/CardCupom";
+import CardCupom from "../../components/CardCupom/CardCupom";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
@@ -180,17 +178,39 @@ export default function Home() {
           description="O que tem de mais gostoso no seu bairro está aqui!"
           color={globalColors.red}
         />
-        <SectionScrollHorizontal>
+        <SectionScrollHorizontal
+          args={{
+            style: {
+              gap: "2rem",
+              marginLeft: "10%",
+            },
+          }}
+        >
+          <CardCupom
+            nome="Cachorro-quente do Romário"
+            descriptions={{
+              valor: "15,00",
+              valorCupom: "0,90",
+              qtdCupom: "20",
+              descricao: "Descrição",
+              titulo: "Titulo",
+              valorAntigo: "19,00",
+            }}
+            colorPreco={globalColors.red}
+            imagem={require("../../icons/png/HotDog.png")}
+          />
           <CardCupom
             nome="Cachorro-quente do Romário"
             descriptions={{
               valor: "5,00",
               valorCupom: "3,00",
-              qtdCupom: 20,
+              qtdCupom: "20",
+              descricao: "Descrição",
+              titulo: "Titulo",
+              valorAntigo: "19,00",
             }}
             imagem={require("../../icons/png/HotDog.png")}
           />
-          
         </SectionScrollHorizontal>
         <VerMaisStyled
           style={{
