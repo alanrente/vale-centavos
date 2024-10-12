@@ -1,45 +1,111 @@
 import styled from "styled-components";
 import { globalColors } from "../../styles/global.style";
 
-export const MarketPlace = styled.div`
+export const PageStyled = styled.div`
+  justify-content: space-between;
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const SectionStyled = styled.div`
   display: flex;
   margin-bottom: 2rem;
   flex-direction: column;
   align-items: center;
   width: 95%;
-  height: 80vh;
+`;
 
-  .header {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border-bottom: 3px solid ${globalColors.purple};
-  }
+export const MarketPlace = styled(SectionStyled)`
+  height: 60vh;
+  min-height: 600px;
 
-  .header-content {
+  .categorias {
     display: flex;
     flex-direction: row;
-    align-items: start;
-    gap: .5rem;
-    height: 100%;
-    text-align: start;
-    margin-left: .8rem;
-    margin-bottom: .8rem;
-    /* background-color: #c7b7b7; */
-  }
-  
-  .header-title {
-    height: 100%;
-    color: ${globalColors.purple};
-    font-size: 1.4rem;
-    font-weight: 700;
-    text-transform: uppercase;
+    position: relative;
+    margin-top: 0.5vh;
+    margin-bottom: 1rem;
+    width: 92%;
+    height: 12vh;
+    min-height: 80px;
+    /* background-color: #ac5757b0; */
   }
 
-  .header-description {
-    color: ${globalColors.silver};
-    font-size: 0.8rem;
-    height: 100%;
-    font-weight: 500;
+  .anuncios {
+    background: url(${require("../../icons/png/BackgroundMarketPlace.png")});
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 440px;
+
+    @media (min-width: 600px) {
+      width: 600px;
+    }
   }
+
+  .anuncios-section {
+    width: 86%;
+    height: 86%;
+    /* border: 2px solid ${globalColors.purple}; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background-color: #5a758dc8; */
+  }
+
+  .anuncios-card {
+    gap: 2.8rem;
+  }
+
+  .anuncios-section-cards {
+    width: 100%;
+    height: 92%;
+    /* background-color: #619146c7; */
+  }
+
+  .anuncios-section-ver-mais {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    height: 8%;
+    background-color: ${globalColors.black};
+    color: ${globalColors.white};
+  }
+
+  .anuncios-section-ver-mais span {
+    margin-right: 1rem;
+    font-size: 0.8rem;
+  }
+`;
+
+export const MaisFood = styled(SectionStyled)`
+  gap: 2.8rem;
+`;
+
+export const VerMaisStyled = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  height: 8%;
+  background-color: ${globalColors.black};
+  color: ${globalColors.white};
+`;
+
+export const VerMaisSpan = styled(VerMaisStyled).attrs({ as: "span" })`
+  margin: 8px 1rem 8px 0;
+  font-size: 0.8rem;
+`;
+
+export const AnunciosDoBairroStyled = styled(SectionStyled)`
+  gap: 2.8rem;
 `;

@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 
 export const globalColors = {
+  blackDark: "#000000",
   black: "#414141",
   silver: "#707070",
   silverLight: "#d4d4d4",
@@ -8,6 +9,7 @@ export const globalColors = {
   white: "#FFFFFF",
   green: "#22C55E",
   greenLightDark: "#00BA46",
+  greenLightSea: "#1BA2A0",
   yellow: "#FFF701",
   yellowDark: "#D19D07",
   brown: "#723A12",

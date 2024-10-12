@@ -1,6 +1,6 @@
 import CardAnuncio from "../../components/CardAnuncio";
 import CardAnuncioBairro from "../../components/CardAnuncioBairro";
-import CardCupom from "../../components/CardCupom";
+import CardCupom from "../../components/CardCupom/CardCupom";
 import IconButton from "../../components/IconButton";
 import { usePngs } from "../../hooks/usePngs";
 
@@ -50,7 +50,7 @@ export function Playground() {
           descricao: "Especial frango e carne 15kg",
           titulo: "Ração Bio Care Premium",
           valor: "999.99",
-          condição: "NOVO",
+          condicao: "NOVO",
         }}
         imagem={require(`../../icons/png/SacoRacao.png`)}
         nome="Nome Vendedor"
@@ -65,7 +65,7 @@ export function Playground() {
           valor: "99,99",
           valorCupom: "0,90",
           qtdCupom: "10",
-          condição: "NOVO",
+          valorAntigo: '100,00',
         }}
       />
 

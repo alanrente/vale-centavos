@@ -1,21 +1,26 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { globalColors } from "../../styles/global.style";
-import { MarketPlace } from "./index.styled";
+import {
+  AnunciosDoBairroStyled,
+  MaisFood,
+  MarketPlace,
+  PageStyled,
+  VerMaisSpan,
+  VerMaisStyled,
+} from "./index.styled";
+import SectionScrollHorizontal from "../../components/SectionScrollHorizontal";
+import { usePngs } from "../../hooks/usePngs";
+import IconButton from "../../components/IconButton";
+import CardAnuncio from "../../components/CardAnuncio";
+import LabelSection from "../../components/LabelSection";
+import CardCupom from "../../components/CardCupom/CardCupom";
+import CardAnuncioBairro from "../../components/CardAnuncioBairro";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
 }
 
 export default function Home() {
-  const HomeStyle: React.CSSProperties = {
-    alignItems: "center",
-    justifyContent: "space-between",
-    display: "flex",
-    flexDirection: "column",
-    gap: "20px",
-  };
-
   const BannerStyle: StyleProps = {
     base: () => ({
       display: "flex",
@@ -25,59 +30,48 @@ export default function Home() {
       position: "relative",
       gap: "20px",
       width: "100%",
-      height: "25vh",
+      height: "22vh",
+      minHeight: "150px",
       // backgroundColor: "#7e2929",
     }),
     back() {
       return {
         background: "linear-gradient(180deg, #414141 0%, #A7A7A7 100%)",
         position: "absolute",
+        zIndex: -999,
         display: "flex",
         flexDirection: "row",
         top: 0,
         width: "100%",
-        height: "70%",
+        height: "66%",
       };
     },
     backDiv() {
       return {
         fontSize: ".6rem",
         color: "#fff",
-        margin: ".8rem 0 0 .8rem",
+        margin: "1vh 0 0 .8rem",
         // backgroundColor: "#000",
         height: "15%",
       };
     },
-    background() {
-      return {
-        height: "80%",
-        width: "100vw",
-        position: "absolute",
-        bottom: 0,
-        overflowX: "scroll",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        gap: "20px",
-        flexWrap: "nowrap",
-        whiteSpace: "nowrap",
-        backgroundColor: "transparent",
-        scrollbarWidth: "none",
-      };
-    },
     banner() {
       return {
-        height: "90%",
-        margin: "0 2px",
+        height: "78%",
+        position: "relative",
+        marginTop: "4vh",
+        borderRadius: "10px",
         backgroundColor: "#1c5779",
-        width: "75%",
+        width: "90%",
+        maxWidth: "600px",
+        maxHeight: "200px",
         flexShrink: 0,
       };
     },
   };
 
-  const navigate = useNavigate();
   const bannerRef = useRef<HTMLDivElement>(null);
+  const pngs = usePngs();
 
   useEffect(() => {
     if (bannerRef.current) {
@@ -89,7 +83,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ ...HomeStyle }}>
+    <PageStyled>
       <div style={BannerStyle.base()}>
         <div style={BannerStyle.back()}>
           <div style={{ ...BannerStyle.backDiv(), color: globalColors.yellow }}>
@@ -99,25 +93,187 @@ export default function Home() {
           <div style={BannerStyle.backDiv()}>Parque dos Meninos</div>
           <div style={BannerStyle.backDiv()}>Cancela</div>
         </div>
-        <div style={BannerStyle.background()} ref={bannerRef}>
+        <SectionScrollHorizontal
+          args={{
+            ref: bannerRef,
+          }}
+        >
           <div style={BannerStyle.banner()}>Primeiro</div>
           <div style={BannerStyle.banner()}>Segundo</div>
           <div style={BannerStyle.banner()}>terceiro</div>
-        </div>
+        </SectionScrollHorizontal>
       </div>
       <MarketPlace>
-        <div className="header">
-          <div className="header-content">
-            <span className="header-title">Marketplace</span>
-            <span className="header-description">({238})</span>
-          </div>
-          <span className="header-content header-description">Promoções exclusivas dos comercinates do bairro.</span>
+        <LabelSection
+          qtd={238}
+          title="Marketplace"
+          description="Promoções exclusivas dos comercinates do bairro."
+          color={globalColors.purple}
+        />
+        <div className="categorias">
+          <SectionScrollHorizontal
+            props={{
+              gap: "2rem",
+            }}
+          >
+            {Object.entries(pngs)
+              .filter(([key]) => !key.includes("Seta"))
+              .map(([key, value]) => {
+                return (
+                  <IconButton
+                    id={key}
+                    count={9}
+                    maxCount={9}
+                    description={key}
+                    key={key}
+                  />
+                );
+              })}
+          </SectionScrollHorizontal>
         </div>
-        direto com comerciante
+        <div className="anuncios">
+          <div className="anuncios-section">
+            <div className="anuncios-section-cards">
+              <SectionScrollHorizontal args={{ className: "anuncios-card" }}>
+                <CardAnuncio
+                  descriptions={{
+                    descricao: "qualquer",
+                    titulo: "titulo",
+                    valor: "10,00",
+                    condicao: "PROMOÇÃO",
+                  }}
+                  imagem={require("../../icons/png/SacoRacao.png")}
+                  nome="Nome"
+                />
+                <CardAnuncio
+                  descriptions={{
+                    descricao: "Ração Bio Care Premium",
+                    titulo: "titulo",
+                    valor: "10,00",
+                    condicao: "PROMOÇÃO",
+                  }}
+                  imagem={require("../../icons/png/SacoRacao.png")}
+                  nome="nome"
+                />
+                <CardAnuncio
+                  descriptions={{
+                    descricao: "qualquer",
+                    titulo: "titulo",
+                    valor: "10,00",
+                    condicao: "PROMOÇÃO",
+                  }}
+                  imagem={require("../../icons/png/SacoRacao.png")}
+                  nome="nome"
+                />
+              </SectionScrollHorizontal>
+            </div>
+            <VerMaisStyled>
+              <VerMaisSpan>Ver mais</VerMaisSpan>
+            </VerMaisStyled>
+          </div>
+        </div>
       </MarketPlace>
-      <div>+food</div>
-      <div>anuncios do bairro</div>
+      <MaisFood>
+        <LabelSection
+          qtd={19}
+          title="+Food"
+          description="O que tem de mais gostoso no seu bairro está aqui!"
+          color={globalColors.red}
+        />
+        <SectionScrollHorizontal
+          args={{
+            style: {
+              gap: "2rem",
+            },
+          }}
+        >
+          <CardCupom
+            nome="Cachorro-quente do Romário"
+            descriptions={{
+              valor: "15,00",
+              valorCupom: "0,90",
+              qtdCupom: "20",
+              descricao: "Descrição",
+              titulo: "Titulo",
+              valorAntigo: "19,00",
+            }}
+            colorPreco={globalColors.red}
+            imagem={require("../../icons/png/HotDog.png")}
+          />
+          <CardCupom
+            nome="Cachorro-quente do Romário"
+            descriptions={{
+              valor: "5,00",
+              valorCupom: "3,00",
+              qtdCupom: "20",
+              descricao: "Descrição",
+              titulo: "Titulo",
+              valorAntigo: "19,00",
+            }}
+            imagem={require("../../icons/png/HotDog.png")}
+          />
+        </SectionScrollHorizontal>
+        <VerMaisStyled
+          style={{
+            width: "90%",
+          }}
+        >
+          <VerMaisSpan>Ver mais</VerMaisSpan>
+        </VerMaisStyled>
+      </MaisFood>
+      <AnunciosDoBairroStyled>
+        <LabelSection
+          qtd={19}
+          title="MAIS ANÚNCIOS DO BAIRRO"
+          description="Aproveite os desconto especiais de seu bairro"
+          color={globalColors.greenLightSea}
+        />
+
+        <CardAnuncioBairro
+          description="essa é uma descrição"
+          imageUrl={require("../../icons/png/SacoRacao.png")}
+          qtdCupom={10}
+          title="Ração Bio Care Premium"
+          validade="10/10/2021"
+          valor="10,00"
+          valorAntigo="15,00"
+          valorCupom="0,50"
+        />
+        <CardAnuncioBairro
+          description="essa é uma descrição"
+          imageUrl={require("../../icons/png/SacoRacao.png")}
+          qtdCupom={10}
+          title="Ração Bio Care Premium"
+          validade="10/10/2021"
+          valor="10,00"
+          valorAntigo="15,00"
+          valorCupom="0,50"
+        />
+        <CardAnuncioBairro
+          description="essa é uma descrição"
+          imageUrl={require("../../icons/png/SacoRacao.png")}
+          qtdCupom={10}
+          title="Ração Bio Care Premium"
+          validade="10/10/2021"
+          valor="10,00"
+          valorAntigo="15,00"
+          valorCupom="0,50"
+        />
+        <div style={{
+          width: "calc(100% - 2rem)",
+          display: "flex",
+          borderRadius: "5px",
+          justifyContent: "center",
+          textTransform: "uppercase",
+          alignItems: "center",
+          padding: ".7rem 1rem",
+          backgroundColor: globalColors.black,
+          color: globalColors.white,
+        }}>
+          carregar mais anúncios
+        </div>
+      </AnunciosDoBairroStyled>
       <div>footer</div>
-    </div>
+    </PageStyled>
   );
 }
