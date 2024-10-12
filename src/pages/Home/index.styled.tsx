@@ -19,7 +19,8 @@ export const SectionStyled = styled.div`
 `;
 
 export const MarketPlace = styled(SectionStyled)`
-  height: 80vh;
+  height: 60vh;
+  min-height: 600px;
 
   .categorias {
     display: flex;
@@ -29,6 +30,7 @@ export const MarketPlace = styled(SectionStyled)`
     margin-bottom: 1rem;
     width: 92%;
     height: 12vh;
+    min-height: 80px;
     /* background-color: #ac5757b0; */
   }
 
@@ -40,8 +42,7 @@ export const MarketPlace = styled(SectionStyled)`
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 52vh;
-    max-height: 500px;
+    height: 440px;
 
     @media (min-width: 600px) {
       width: 600px;
@@ -105,4 +106,6 @@ export const VerMaisSpan = styled(VerMaisStyled).attrs({ as: "span" })`
   font-size: 0.8rem;
 `;
 
-export const AnunciosDoBairroStyled = styled(SectionStyled)``;
+export const AnunciosDoBairroStyled = styled(SectionStyled)`
+  gap: 2.8rem;
+`;

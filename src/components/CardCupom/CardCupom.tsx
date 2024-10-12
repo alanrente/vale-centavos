@@ -1,15 +1,9 @@
-import { background, fontColor, globalColors } from "../../styles/global.style";
+import { SectionCupom } from "../SectionCupom";
 import {
   BaseStyled,
   ChildrenBase,
-  DivValor,
-  NumbersValor,
   PrecoFlutuante,
-  SpanValor,
   ContainerImage,
-  SpanComerciante,
-  DescriptionContent,
-  CompreAgora,
 } from "./index.styled";
 
 interface Descriptions {
@@ -52,97 +46,15 @@ export default function CardCupom({
           </ContainerImage>
         </ChildrenBase>
       )}
-      <SpanComerciante>{nome}</SpanComerciante>
-      {descriptions.titulo && (
-        <DescriptionContent style={{ height: 96 }}>
-          <div
-            style={{
-              color: globalColors.black,
-              fontWeight: "bold",
-            }}
-          >
-            {descriptions.titulo}
-          </div>
-          <div
-            style={{
-              color: globalColors.silver,
-            }}
-          >
-            {descriptions.descricao}
-          </div>
-          <div
-            style={{
-              fontSize: "70%",
-              color: globalColors.red,
-            }}
-          >
-            De:
-            <span
-              style={{
-                textDecoration: "line-through",
-              }}
-            >
-              {descriptions.valorAntigo}
-            </span>
-          </div>
-        </DescriptionContent>
-      )}
-      <ChildrenBase
-        style={{
-          height: "18%",
-          display: "flex",
-          flexDirection: "row",
-        }}
-      >
-        <DivValor
-          style={{
-            ...fontColor.white,
-            backgroundColor: colorPreco || globalColors.green,
-            width: "35%",
-          }}
-        >
-          <div>
-            <SpanValor>POR</SpanValor>
-          </div>
-          <NumbersValor>{descriptions.valor}</NumbersValor>
-          <div>
-            <SpanValor>REAIS</SpanValor>
-          </div>
-        </DivValor>
-        <DivValor
-          style={{
-            width: "35%",
-            ...background.white,
-            ...fontColor.black,
-          }}
-        >
-          <div>
-            <SpanValor>USAR CUPOM</SpanValor>
-          </div>
-          <NumbersValor>{descriptions.valorCupom}</NumbersValor>
-          <div>
-            <SpanValor>CENTAVOS</SpanValor>
-          </div>
-        </DivValor>
-        <DivValor
-          style={{
-            width: "30%",
-            backgroundColor: globalColors.silver,
-            color: globalColors.white,
-          }}
-        >
-          <div>
-            <SpanValor>SÓ TEM</SpanValor>
-          </div>
-          <NumbersValor>{descriptions.qtdCupom}</NumbersValor>
-          <div>
-            <SpanValor>CUPOM</SpanValor>
-          </div>
-        </DivValor>
-      </ChildrenBase>
-      <CompreAgora style={{
-        height: "10%",
-      }}>COMPRE AGORA</CompreAgora>
+      <SectionCupom {...{ nome, colorPreco,
+        descricao: descriptions.descricao,
+        titulo: descriptions.titulo,
+        valor: descriptions.valor,
+        valorCupom: descriptions.valorCupom,
+        valorAntigo: descriptions.valorAntigo,
+        qtdCupom: descriptions.qtdCupom,
+
+       }} />
     </BaseStyled>
   );
 }

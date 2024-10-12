@@ -14,6 +14,7 @@ import IconButton from "../../components/IconButton";
 import CardAnuncio from "../../components/CardAnuncio";
 import LabelSection from "../../components/LabelSection";
 import CardCupom from "../../components/CardCupom/CardCupom";
+import CardAnuncioBairro from "../../components/CardAnuncioBairro";
 
 interface StyleProps {
   [key: string]: (...args: any) => React.CSSProperties;
@@ -30,6 +31,7 @@ export default function Home() {
       gap: "20px",
       width: "100%",
       height: "22vh",
+      minHeight: "150px",
       // backgroundColor: "#7e2929",
     }),
     back() {
@@ -48,7 +50,7 @@ export default function Home() {
       return {
         fontSize: ".6rem",
         color: "#fff",
-        margin: ".8rem 0 0 .8rem",
+        margin: "1vh 0 0 .8rem",
         // backgroundColor: "#000",
         height: "15%",
       };
@@ -182,7 +184,6 @@ export default function Home() {
           args={{
             style: {
               gap: "2rem",
-              marginLeft: "10%",
             },
           }}
         >
@@ -227,6 +228,50 @@ export default function Home() {
           description="Aproveite os desconto especiais de seu bairro"
           color={globalColors.greenLightSea}
         />
+
+        <CardAnuncioBairro
+          description="essa é uma descrição"
+          imageUrl={require("../../icons/png/SacoRacao.png")}
+          qtdCupom={10}
+          title="Ração Bio Care Premium"
+          validade="10/10/2021"
+          valor="10,00"
+          valorAntigo="15,00"
+          valorCupom="0,50"
+        />
+        <CardAnuncioBairro
+          description="essa é uma descrição"
+          imageUrl={require("../../icons/png/SacoRacao.png")}
+          qtdCupom={10}
+          title="Ração Bio Care Premium"
+          validade="10/10/2021"
+          valor="10,00"
+          valorAntigo="15,00"
+          valorCupom="0,50"
+        />
+        <CardAnuncioBairro
+          description="essa é uma descrição"
+          imageUrl={require("../../icons/png/SacoRacao.png")}
+          qtdCupom={10}
+          title="Ração Bio Care Premium"
+          validade="10/10/2021"
+          valor="10,00"
+          valorAntigo="15,00"
+          valorCupom="0,50"
+        />
+        <div style={{
+          width: "calc(100% - 2rem)",
+          display: "flex",
+          borderRadius: "5px",
+          justifyContent: "center",
+          textTransform: "uppercase",
+          alignItems: "center",
+          padding: ".7rem 1rem",
+          backgroundColor: globalColors.black,
+          color: globalColors.white,
+        }}>
+          carregar mais anúncios
+        </div>
       </AnunciosDoBairroStyled>
       <div>footer</div>
     </PageStyled>

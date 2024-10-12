@@ -29,7 +29,7 @@ export const ValeCentavosProvider = ({ children }: any) => {
           backgroundColor: globalColors.white,
           // backgroundColor: "saddlebrown",
           // position: "fixed",
-          zIndex: 99999,
+          zIndex: 9999,
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
