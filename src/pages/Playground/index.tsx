@@ -1,6 +1,7 @@
 import CardAnuncio from "../../components/CardAnuncio";
 import CardAnuncioBairro from "../../components/CardAnuncioBairro";
 import CardCupom from "../../components/CardCupom/CardCupom";
+import ComprarCupom from "../../components/ComprarCupom";
 import IconButton from "../../components/IconButton";
 import { usePngs } from "../../hooks/usePngs";
 
@@ -18,7 +19,8 @@ export function Playground() {
         gap: "20px",
       }}
     >
-      <div
+      <ComprarCupom />
+      {/* <div
         className="icons-container"
         style={{
           margin: "50px",
@@ -44,7 +46,7 @@ export function Playground() {
           })}
 
         <img style={{}} src={require(`../../icons/png/SetaDireita.png`)} alt="" />
-      </div>
+      </div> */}
       <CardAnuncio
         descriptions={{
           descricao: "Especial frango e carne 15kg",
