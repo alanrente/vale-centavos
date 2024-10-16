@@ -1,3 +1,4 @@
+import Cadastro from "../../components/Cadastro";
 import CardAnuncio from "../../components/CardAnuncio";
 import CardAnuncioBairro from "../../components/CardAnuncioBairro";
 import CardCupom from "../../components/CardCupom/CardCupom";
@@ -19,6 +20,7 @@ export function Playground() {
         gap: "20px",
       }}
     >
+      <Cadastro />
       <ComprarCupom />
       {/* <div
         className="icons-container"
@@ -67,7 +69,7 @@ export function Playground() {
           valor: "99,99",
           valorCupom: "0,90",
           qtdCupom: "10",
-          valorAntigo: '100,00',
+          valorAntigo: "100,00",
         }}
       />
 
