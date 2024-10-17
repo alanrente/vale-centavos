@@ -20,7 +20,7 @@ export function Playground() {
         gap: "20px",
       }}
     >
-      <Cadastro />
+      <Cadastro/>
       <ComprarCupom />
       {/* <div
         className="icons-container"
