@@ -1,4 +1,4 @@
-import Cadastro from "../../components/Cadastro";
+import BemVindo from "../../components/BemVindo";
 import CardAnuncio from "../../components/CardAnuncio";
 import CardAnuncioBairro from "../../components/CardAnuncioBairro";
 import CardCupom from "../../components/CardCupom/CardCupom";
@@ -20,7 +20,7 @@ export function Playground() {
         gap: "20px",
       }}
     >
-      <Cadastro/>
+      <BemVindo nome="Fulano" />
       <ComprarCupom />
       {/* <div
         className="icons-container"
