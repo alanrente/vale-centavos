@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { EView } from "../../interfaces/page.interface";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
+
 interface CadastrarProps {
   // nome: string;
   // email: string;

@@ -1,4 +1,5 @@
 import { CSSProperties } from "react";
+import { css } from "styled-components";
 
 export const globalColors = {
   blue: "#1B63A2",
@@ -73,3 +74,43 @@ export const fontColor: {
     color: "#A7A7A7",
   },
 };
+
+export const DispleyFlexStyled = css`
+  display: flex;
+`;
+
+export const FlexDirectionColumnStyled = css`
+  flex-direction: column;
+`;
+
+export const FlexDirectionRowStyled = css`
+  flex-direction: row;
+`;
+
+export const JustifyContentCenterStyled = css`
+  justify-content: center;
+`;
+
+export const JustifyContentStartStyled = css`
+  justify-content: start;
+`;
+
+export const JustifyContentEndStyled = css`
+  justify-content: end;
+`;
+
+export const JustifyContentSpaceBetweenStyled = css`
+  justify-content: space-between;
+`;
+
+export const AlingItemsCenterStyled = css`
+  align-items: center;
+`;
+
+export const AlingItemsStartStyled = css`
+  align-items: start;
+`;
+
+export const AlingItemsEndStyled = css`
+  align-items: end;
+`;
